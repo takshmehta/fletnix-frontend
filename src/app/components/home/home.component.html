@@ -1,0 +1,73 @@
+<mat-toolbar color="primary">
+  <span>FletNix</span>
+  <span class="spacer"></span>
+  <button mat-button (click)="onLogout()">Logout</button>
+</mat-toolbar>
+
+<div class="action-container">
+  <div class="filter-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Filter by</mat-label>
+      <mat-select
+        [(ngModel)]="selectedType"
+        (selectionChange)="onFilterChange($event.value)"
+        placeholder="Select Type"
+      >
+        <mat-option value="">All</mat-option>
+        <mat-option value="Movie">Movies</mat-option>
+        <mat-option value="TV Show">TV Shows</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="search-container">
+    <mat-form-field appearance="outline">
+      <mat-label>Search by Title or Cast</mat-label>
+      <input
+        matInput
+        (input)="onSearch($event)"
+        placeholder="Enter title or cast"
+      />
+    </mat-form-field>
+  </div>
+</div>
+
+<div class="content">
+  <div class="movies-container">
+    <mat-card
+      class="show-card"
+      *ngFor="let movie of movies"
+      appearance="outlined"
+    >
+      <div (click)="viewDetails(movie._id)">
+        <mat-card-title>{{ movie.title }}</mat-card-title>
+        <mat-card-subtitle
+          >{{ movie.type }} - {{ movie.release_year }}</mat-card-subtitle
+        >
+        <mat-card-content>
+          <p>{{ movie.description }}</p>
+        </mat-card-content>
+      </div>
+    </mat-card>
+  </div>
+
+  <div class="pagination-container">
+    <div class="pagination-controls">
+      <button
+        mat-stroked-button
+        (click)="goToPreviousPage()"
+        [disabled]="currentPage === 1"
+      >
+        Previous
+      </button>
+      <span>Page {{ currentPage }} of {{ totalPages }}</span>
+      <button
+        mat-stroked-button
+        (click)="goToNextPage()"
+        [disabled]="currentPage === totalPages"
+      >
+        Next
+      </button>
+    </div>
+  </div>
+</div>

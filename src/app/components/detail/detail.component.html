@@ -1,0 +1,19 @@
+<!-- src/app/detail/detail.component.html -->
+
+<mat-card *ngIf="movie">
+  <mat-card-header>
+    <mat-card-title>{{ movie.title }}</mat-card-title>
+    <mat-card-subtitle
+      >{{ movie.type }} | {{ movie.release_year }}</mat-card-subtitle
+    >
+  </mat-card-header>
+  <mat-card-content>
+    <p><strong>Director:</strong> {{ movie.director }}</p>
+    <p><strong>Cast:</strong> {{ movie.cast }}</p>
+    <p><strong>Country:</strong> {{ movie.country }}</p>
+    <p><strong>Rating:</strong> {{ movie.rating }}</p>
+    <p><strong>Duration:</strong> {{ movie.duration }}</p>
+    <p><strong>Genres:</strong> {{ movie.listed_in }}</p>
+    <p><strong>Description:</strong> {{ movie.description }}</p>
+  </mat-card-content>
+</mat-card>

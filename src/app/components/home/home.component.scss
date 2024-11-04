@@ -1,0 +1,62 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.content {
+  padding: 20px;
+}
+
+.action-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px 4px 2px 2px;
+
+  .filter-container {
+    margin-right: 10px;
+  }
+}
+
+.movies-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  .show-card {
+    text-align: center;
+    cursor: pointer;
+    width: calc(100% / 3 - 24px);
+    max-height: 400px;
+    height: 200px;
+    padding: 16px;
+    margin: 8px 6px;
+  }
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+
+  .pagination-controls {
+    max-width: 80%;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .movies-container {
+    .show-card {
+      width: 100%;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .movies-container {
+    .show-card {
+      width: calc(100% / 2 - 16px);
+    }
+  }
+}
